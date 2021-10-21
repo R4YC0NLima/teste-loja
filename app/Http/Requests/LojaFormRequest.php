@@ -11,7 +11,7 @@ class LojaFormRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,7 +21,7 @@ class LojaFormRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'nome_loja' => 'required|max:40|min:3',
@@ -29,7 +29,7 @@ class LojaFormRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
             'nome_loja.required'    => 'Nome da loja é obrigatório',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LojaFormRequest;
 use App\Models\Loja;
+use Illuminate\Http\JsonResponse;
 
 class LojaController extends Controller
 {
@@ -12,12 +13,12 @@ class LojaController extends Controller
         return Loja::with('produtos')->get();
     }
 
-    public function show(Loja $loja)
+    public function show(Loja $loja): Loja
     {
         return $loja;
     }
 
-    public function destroy(Loja $loja)
+    public function destroy(Loja $loja): JsonResponse
     {
         $loja->delete();
 
@@ -27,7 +28,7 @@ class LojaController extends Controller
     }
 
 
-    public function store(LojaFormRequest $request)
+    public function store(LojaFormRequest $request): JsonResponse
     {
         return response()->json([
             'message'   => 'Loja cadastrado com sucesso!',
@@ -35,7 +36,7 @@ class LojaController extends Controller
         ], 201);
     }
 
-    public function update(LojaFormRequest $request, Loja $loja)
+    public function update(LojaFormRequest $request, Loja $loja): JsonResponse
     {
         return response()->json([
             'message'   => 'Loja atualizado com sucesso!',

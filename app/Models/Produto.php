@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Produto extends Model
 {
@@ -14,11 +15,25 @@ class Produto extends Model
     protected $fillable = [
         'nome',
         'valor',
-        'ativo',
+        'ativo'
     ];
 
-    public function loja()
+    protected $dates    = [
+        'created_at',
+        'updated_at',
+    ];
+
+    protected $casts    = [
+        'ativo' => 'boolean',
+    ];
+
+    public function loja(): BelongsTo
     {
         return $this->belongsTo(Loja::class, 'loja_id', 'id');
+    }
+
+    public function getValorAttribute($numero): string
+    {
+        return 'R$ ' . number_format($numero, 2, ',','.');
     }
 }

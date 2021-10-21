@@ -11,7 +11,7 @@ class ProdutoFormRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,7 +21,7 @@ class ProdutoFormRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'nome'  => 'required|string|max:60|min:3',
@@ -30,7 +30,7 @@ class ProdutoFormRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
             'nome.required'         => 'Nome do produto é obrigatório',
@@ -40,7 +40,7 @@ class ProdutoFormRequest extends FormRequest
             'valor.required'        => 'Valor é obrigatório',
             'valor.numeric'         => 'Valor inválido',
             'valor.min'             => 'Valor tem que ter no máximo 2 digitos',
-            'valor.max'             => 'Valor tem que ter no máximo 6 caracteres',
+            'valor.max'             => 'Valor tem que ter no máximo 6 digitos',
             'ativo.required'        => 'Ativo é obrigatório',
             'ativo.boolean'         => 'Ativo inválido',
         ];
