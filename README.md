@@ -35,6 +35,8 @@ O teste é um CRUD de lojas com vários produtos
 ## Regras do Produto
 * [x] -  Ao criar ou atualizar um produto ele deve armazenar em um banco de dados e gerar
 uma notificação de sucesso através de email;
+- 
+* [x] - Notificação em fila;
 
 * [x] - Ao retornar o campo de valor nas Apis através de um mutator criar uma máscara de
    R$ ####,##.
