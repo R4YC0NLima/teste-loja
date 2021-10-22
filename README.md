@@ -42,6 +42,8 @@ uma notificação de sucesso através de email;
 * [x] - O CRUD dever ser completo com todas as rotas para API: index, show, store,
    update, delete;
 
+* [x] - Worflow adicionado;
+
 ## Comandos de execução
 
 - Para iniciar o projeto pela primeira vez, execute:
