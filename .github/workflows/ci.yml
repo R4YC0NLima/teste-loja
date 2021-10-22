@@ -1,0 +1,26 @@
+name: Loja-PHP Workflow
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build:
+    name: Pokedex Laravel Build
+    runs-on: ubuntu-latest
+    steps:
+      # Esta ação faz o check-out de seu repositório em $GITHUB_WORKSPACE, para que seu fluxo de trabalho possa acessá-lo.
+      - uses: actions/checkout@v2
+
+      # Instalação do Composer
+      - uses: ./.github/actions/composer
+
+      # Instalação do Laravel
+      - uses: ./.github/actions/config-laravel
+
+      # Execução dos testes
+      - run: ./vendor/bin/phpunit
+
+      # Sniff personalizado para detectar violações e reformatar o código em conformidade com o PSR-2
+      - run: ./vendor/bin/phpcs
