@@ -21,6 +21,3 @@ jobs:
 
       # Execução dos testes
       - run: ./vendor/bin/phpunit
-
-      # Sniff personalizado para detectar violações e reformatar o código em conformidade com o PSR-2
-      - run: ./vendor/bin/phpcs
