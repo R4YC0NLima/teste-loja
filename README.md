@@ -55,3 +55,5 @@ docker-compose down
 ## status
 
 <p><img src="https://github.com/R4YC0NLima/teste-loja/workflows/Pokedex-PHP%20Workflow/badge.svg"></p>
+
+<p>Ok!</p>
