@@ -1,12 +1,12 @@
 version: '3'
 
 networks:
-  network-teste-loja:
+  network-loja:
 
 services:
   nginx:
     image: nginx:1.18.0-alpine
-    container_name: nginx-teste-loja
+    container_name: nginx-loja
     ports:
       - "80:80"
     volumes:
@@ -15,10 +15,10 @@ services:
     depends_on:
       - php
     networks:
-      - network-teste-loja
+      - network-loja
   php:
     build: docker/php-fpm
-    container_name: teste-loja
+    container_name: loja
     entrypoint: /entrypoint.sh
     environment:
       CONTAINER_NAME: PHP
@@ -28,10 +28,10 @@ services:
     expose:
       - "9000"
     networks:
-      - network-teste-loja
+      - network-loja
   mysql:
     image: mysql:8
-    container_name: mysql-teste-loja
+    container_name: mysql-loja
     command: --innodb-use-native-aio=0
     restart: unless-stopped
     tty: true
@@ -43,12 +43,24 @@ services:
       MYSQL_PASSWORD: "${DB_PASSWORD}"
       MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
       SERVICE_TAGS: dev
+      SERVICE_NAME: mysql-loja
+    networks:
+      - network-loja
+  mysql-test:
+    image: mysql:8
+    tmpfs: /var/lib/mysql
+    container_name: mysql-teste-loja
+    command: --innodb-use-native-aio=0
+    environment:
+      MYSQL_DATABASE: "${DB_DATABASE}"
+      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+      SERVICE_TAGS: dev
       SERVICE_NAME: mysql-teste-loja
     networks:
-      - network-teste-loja
+      - network-loja
   phpmyadmin:
     build: docker/phpmyadmin
-    container_name: phpmyadmin-teste-loja
+    container_name: phpmyadmin-loja
     environment:
       PMA_ARBITRARY: 1
     ports:
@@ -56,13 +68,13 @@ services:
     volumes:
       - .docker/phpmyadmin/data/sessions:/sessions
     networks:
-      - network-teste-loja
+      - network-loja
   redis:
     image: redis:alpine3.11
-    container_name: redis-teste-loja
+    container_name: redis-loja
     expose:
       - 6379
     ports:
       - "6379:6379"
     networks:
-      - network-teste-loja
+      - network-loja

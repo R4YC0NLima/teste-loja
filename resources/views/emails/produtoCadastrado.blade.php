@@ -1,7 +1,7 @@
 @component('mail::message')
     # Olá !
 
-    <p>O produto <b> {{ $produto->nome }} </b> foi cadastrado com sucesso! =D</p>
+    <p>O produto {!! $produto->nome !!}  foi cadastrado com sucesso! =D</p>
 
 {{--    @component('mail::button', ['url' => $url])--}}
 {{--        Visite o nosso site--}}

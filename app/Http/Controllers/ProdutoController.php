@@ -5,15 +5,23 @@ namespace App\Http\Controllers;
 use App\Events\ProdutoAtualizado;
 use App\Events\ProdutoCadastrado;
 use App\Http\Requests\ProdutoFormRequest;
+use App\Repositories\Contracts\LojaRepositoryInterface;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use App\Models\{Loja, Produto};
 
 class ProdutoController extends Controller
 {
-    public function index(Loja $loja): Loja
+    protected $repository;
+
+    public function __construct(LojaRepositoryInterface $repository)
     {
-        $loja->produtos()->get();
-        return $loja->load('produtos');
+        $this->repository = $repository;
+    }
+
+    public function index(Request $request)
+    {
+        return $this->repository->relationships('produtos')->findById($request->route('loja'));
     }
 
     public function store(ProdutoFormRequest $request, Loja $loja): JsonResponse

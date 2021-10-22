@@ -32,6 +32,7 @@ class SendProdutoAtualizadoNotification
     public function handle(ProdutoAtualizado $event)
     {
         $data = $event->produto;
-        Mail::to('rayconbentes16@gmail.com')->send(new ProdutoAtualizadoEmail($data));
+        Mail::to(config('mail.from.address'))->send(new ProdutoAtualizadoEmail($data));
+//        Mail::to('rayconbentes16@gmail.com')->send(new ProdutoAtualizadoEmail($data));
     }
 }

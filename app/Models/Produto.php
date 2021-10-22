@@ -24,6 +24,7 @@ class Produto extends Model
     ];
 
     protected $casts    = [
+        'id'    => 'integer',
         'ativo' => 'boolean',
     ];
 

@@ -18,7 +18,7 @@ class CreateProdutoTable extends Migration
             $table->string('nome');
             $table->integer('valor');
             $table->unsignedBigInteger('loja_id');
-            $table->boolean('ativo');
+            $table->boolean('ativo')->default(0);
             $table->timestamps();
 
             $table->foreign('loja_id')->references('id')->on('lojas');

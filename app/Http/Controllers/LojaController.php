@@ -4,18 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LojaFormRequest;
 use App\Models\Loja;
+use App\Repositories\Contracts\LojaRepositoryInterface;
 use Illuminate\Http\JsonResponse;
 
 class LojaController extends Controller
 {
-    public function index()
+    protected $repository;
+
+    public function __construct(LojaRepositoryInterface $repository)
     {
-        return Loja::with('produtos')->get();
+        $this->repository = $repository;
     }
 
-    public function show(Loja $loja): Loja
+    public function index()
     {
-        return $loja;
+        return $this->repository->relationships('produtos')->getAll();
+    }
+
+    public function show($loja): Loja
+    {
+        return $this->repository->relationships('produtos')->findById($loja);
     }
 
     public function destroy(Loja $loja): JsonResponse
@@ -32,7 +40,7 @@ class LojaController extends Controller
     {
         return response()->json([
             'message'   => 'Loja cadastrado com sucesso!',
-            'data'      => Loja::create($request->all())
+            'data'      => $this->repository->store($request->all())
         ], 201);
     }
 

@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/lojas', [LojaController::class, 'index']);
 Route::post('/lojas', [LojaController::class, 'store']);
-Route::get('/lojas/{loja}', [LojaController::class, 'show']);
+Route::get('/lojas/{loja}', [LojaController::class, 'show'])->name('showLoja');
 Route::put('/lojas/{loja}', [LojaController::class, 'update']);
 Route::delete('/lojas/{loja}', [LojaController::class, 'destroy']);
 

@@ -31,6 +31,6 @@ class SendProdutoCadastradoNotification
     public function handle(ProdutoCadastrado $event)
     {
         $data = $event->produto;
-        Mail::to('rayconbentes16@gmail.com')->send(new ProdutoCadastradoEmail($data));
+        Mail::to(config('mail.from.address'))->send(new ProdutoCadastradoEmail($data));
     }
 }
