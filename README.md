@@ -44,16 +44,16 @@ uma notificação de sucesso através de email;
 
 ## Comandos de execução
 
-Para iniciar o projeto pela primeira vez, execute:
+- Para iniciar o projeto pela primeira vez, execute:
 docker-compose up -d --build
 
-Após o 1º build, poderá está executando sem a flag --build
+- Após o 1º build, poderá está executando sem a flag --build
 
-Para derrubar os container, execute:
+- Para derrubar os container, execute:
 docker-compose down
 
 ## status
 
-<p><img src="https://github.com/R4YC0NLima/teste-loja/workflows/Pokedex-PHP%20Workflow/badge.svg"></p>
+<p><img src="https://github.com/R4YC0NLima/teste-loja/workflows/Loja-PHP%20Workflow/badge.svg"></p>
 
 <p>Ok!</p>
