@@ -47,12 +47,17 @@ uma notificação de sucesso através de email;
 ## Comandos de execução
 
 - Para iniciar o projeto pela primeira vez, execute:
-docker-compose up -d --build
-
+```
+    docker-compose up -d --build
+```
 - Após o 1º build, poderá está executando sem a flag --build
-
+```
+    docker-compose up -d
+```
 - Para derrubar os container, execute:
-docker-compose down
+```
+    docker-compose down
+```
 
 ## status
 
