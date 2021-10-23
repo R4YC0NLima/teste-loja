@@ -1,7 +1,7 @@
 # Teste Laravel Pleno
 O teste é um CRUD de lojas com vários produtos
 
- <table style="width:100%">
+<table style="width:100%">
     <thead>
       <tr>
         <th></th>
@@ -10,17 +10,17 @@ O teste é um CRUD de lojas com vários produtos
     </thead>
     <tbody>
       <tr>
-        <td><img src="https://www.docker.com/sites/default/files/d8/2019-07/Moby-logo.png" alt="docker"></td>
+        <td><img src="https://www.docker.com/sites/default/files/d8/2019-07/Moby-logo.png" width="50" alt="docker"></td>
         <td>Docker</td>
         <td><a target="_blank" href="https://www.docker.com/">https://www.docker.com/</a></td>
       </tr>   
       <tr>
-        <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" alt="laravel"></td>
+        <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" width="50" alt="laravel"></td>
         <td>Laravel 8</td>
         <td><a target="_blank" href="https://laravel.com/">https://laravel.com/</a></td>
       </tr> 
       <tr>
-        <td><img src="https://seeklogo.com/images/I/insomnia-logo-A35E09EB19-seeklogo.com.png" alt="insomnia"></td>
+        <td><img src="https://seeklogo.com/images/I/insomnia-logo-A35E09EB19-seeklogo.com.png" width="50" alt="insomnia"></td>
         <td>Insomnia</td>
         <td><a target="_blank" href="https://insomnia.rest/">https://insomnia.rest/</a></td>
       </tr>    
